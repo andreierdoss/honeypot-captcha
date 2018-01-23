@@ -19,7 +19,7 @@ module HoneypotCaptcha
       base.send :helper_method, :honeypot_string
 
       if base.respond_to? :before_filter
-        base.send :prepend_before_filter, :protect_from_spam, :only => [:create, :update]
+        base.send :prepend_before_action, :protect_from_spam, only: [:create, :update]
       end
     end
   end
